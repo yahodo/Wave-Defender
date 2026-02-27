@@ -28,7 +28,7 @@ namespace Suriyun.MobileTPS
         protected virtual void Awake()
         {
             instance = this;
-            Application.targetFrameRate = 60;
+            
 
             if (level_setting == null)
             {
