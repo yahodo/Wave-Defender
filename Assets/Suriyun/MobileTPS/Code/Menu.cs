@@ -5,7 +5,6 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private List<GameObject> menuList;
-    [SerializeField] private GameObject NavButtons;
     [SerializeField] private int startMenuIndex;
 
     private void Start()
@@ -14,10 +13,13 @@ public class Menu : MonoBehaviour
     }
     public void ChangeMenu(int index)
     {
+        if (index >= menuList.Count || index < 0)
+        {
+            Debug.LogWarning("ChangeMenu index is wrong");
+            return;
+        }
         DiactivateAllMenu();
         menuList[index].SetActive(true);
-
-        NavButtons.SetActive(index != 0);
     }
     private void DiactivateAllMenu()
     {
